@@ -1,6 +1,14 @@
-import type { Preview } from "@storybook/react";
-import "../src/index.css";
-const preview: Preview = {
+import '../src/index.css';
+
+// Registers the msw addon
+ import { initialize, mswLoader } from 'msw-storybook-addon';
+
+// Initialize MSW
+ initialize();
+
+//👇 UI에서 작업(onArchiveTask 및 onPinTask)을 기록하도록 Storybook을 구성
+/** @type { import('@storybook/react').Preview } */
+const preview = {
   parameters: {
     controls: {
       matchers: {
@@ -9,6 +17,7 @@ const preview: Preview = {
       },
     },
   },
+ loaders: [mswLoader],
 };
 
 export default preview;
