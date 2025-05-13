@@ -46,6 +46,7 @@ export default function Task({
     </div>
   );
 }
+
 Task.propTypes = {
   /** Composition of the task */
   task: PropTypes.shape({
